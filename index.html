@@ -104,17 +104,54 @@
     <hr>
 
     <h2>Experiments</h2>
+
     <h3>Experiment 1: Joint Training</h3>
-    <p>The proposed EBM prior model can be jointly trained with generation model (MCMC posterior) and inference model (variational learning).
+    <p>
+        The proposed EBM prior model can be jointly trained with generation model (MCMC posterior) and inference model (variational learning).
         If the model is well-trained, the multi-layer EBM prior model should render expressive prior distribution leading to realistic synthesis.
         We recruit Fréchet Inception Distance (FID) to quantitatively evaluate the generation quality and compare with the baseline models that assume standard Gassuain prior and informative prior distribution.
     </p>
-<!--    <p>The generator network \(p_\theta\) in our framework is well-learned to generate samples that are realistic and share visual similarities as the training data. The qualitative results are shown in Figure 1. We further evaluate our model quantitatively by using Fréchet Inception Distance (FID) in the table below. It can be seen that our model achieves superior generation performance compared to listed baseline models.</p>-->
     <div class="figure">
         <img src="./figures/exp1-joint-training/cvpr2023-exp1-table.png" width="400" style="margin:10px">
-<!--        <img src="./figure/image/cifar10/synthesis/cifar10_syn.png" width="200" style="margin:10px">-->
-<!--        <img src="./figure/image/celeba/synthesis/celeba_latent_ebm_synthesis.png" width="200" style="margin:10px">-->
-<!--        <p class="caption"><b>Figure 1:</b> Generated samples for SVHN \((32 \times 32)\), CIFAR-10 \((32 \times 32)\), and CelebA \((64 \times 64)\).</p>-->
+    </div>
+
+    <p>
+        We further compare two posterior sampling scheme: MCMC posterior vs. Inference model.
+        We observe that the MCMC posterior sampling can be more accurate but less efficient, while inference model is efficient but can be less accurate.
+    </p>
+    <div class="figure">
+        <img src="./figures/exp1-joint-training/cvpr2023-exp1-mcmc-vs-inf.png" width="400" style="margin:10px">
+    </div>
+
+
+    <h3>Experiment 2: Deep Hierarchical Model</h3>
+    <p>
+        The proposed EBM prior model can also be applied to deep hierarchical models via two-stage training scheme, in which the posterior samples can be obtained from pre-trained inference model,
+        while prior samples are obtained via <a href="https://github.com/NVlabs/VAEBM">reparametrized sampling</a> scheme.
+        We consider <a href="https://github.com/NVlabs/NVAE">NVAE</a> as our backbone model for the first stage training and train our joint latent space EBM prior model in the second stage.
+    </p>
+<!--    <p>The generator network \(p_\theta\) in our framework is well-learned to generate samples that are realistic and share visual similarities as the training data. The qualitative results are shown in Figure 1. We further evaluate our model quantitatively by using Fréchet Inception Distance (FID) in the table below. It can be seen that our model achieves superior generation performance compared to listed baseline models.</p>-->
+    <div class="figure">
+        <img src="./figures/exp2-nvae/cvpr2023-exp2-table1.png" width="200" style="margin:10px">
+        <img src="./figures/exp2-nvae/cvpr2023-exp2-table2.png" width="400" style="margin:10px">
+<!--        <p class="caption"><b>Table</b> Image synthesis with NVAE backbone model on CelebA-HQ \(256 \times 256\). Left: temperature=0.7. Right: temperature=1.0.</p>-->
+    </div>
+
+
+    <div class="figure">
+        <img src="./figures/exp2-nvae/cvpr2023-exp2-celeba256_ours_0.7.png" width="300" style="margin:10px">
+        <img src="./figures/exp2-nvae/cvpr2023-exp2-celeba256_ours_1.0.png" width="300" style="margin:10px">
+        <p class="caption"><b>Figure 1:</b> Image synthesis with NVAE backbone model on CelebA-HQ \(256 \times 256\). Left: temperature=0.7. Right: temperature=1.0.</p>
+    </div>
+    <div class="figure">
+        <img src="./figures/exp2-nvae/cvpr2023-exp2-cifar10_nvae.png" width="300" style="margin:10px">
+        <img src="./figures/exp2-nvae/cvpr2023-exp2-cifar10_ours.png" width="300" style="margin:10px">
+        <p class="caption"><b>Figure 2:</b> Image synthesis with NVAE backbone model on CIFAR-10 \(32 \times 32\). Left: NVAE. Right: ours.</p>
+    </div>
+    <div class="figure">
+        <img src="./figures/exp2-nvae/cvpr2023-exp2-church_nvae.png" width="300" style="margin:10px">
+        <img src="./figures/exp2-nvae/cvpr2023-exp2-church_ours.png" width="300" style="margin:10px">
+        <p class="caption"><b>Figure 3:</b> Image synthesis with NVAE backbone model on LSUN-Church \(64 \times 64\). Left: NVAE. Right: ours.</p>
     </div>
 
 
