@@ -167,6 +167,7 @@
         <p class="caption"><b>Figure 2:</b> Hierarchical sampling. Top: ours. Bottom: BIVA.</p>
     </div>
 
+    
     <h4>Experiment 2.2: Out-of-distribution dection</h4>
     <p>
         We also conduct out-of-distribution (OOD) detection to further evaluate the hierarchical representations.
@@ -190,6 +191,18 @@
         <p class="caption"><b>Figure 3:</b> Histogram of density with increasing K.</p>
     </div>
 
+    <h4>Experiment 2.3: Hierarchical reconstruction</h4>
+    <p>
+        We conduct hierarchical reconstruction by using the above decision function with increasing K.
+        We observe that the details in reconstructions can be gradually replaced by common features as more layers of latent variables are sampled from the prior distribution.
+        For example, the sunglass first becomes a more common glass and then eventually disappears.
+        This further suggests that our model carries different levels of abstract representations within the hierarchical structure.
+    </p>
+    <div class="figure">
+<!--        <img src="./figures/exp3-hierarchical-rep/hierarchical-recon.png" width="200" style="margin:10px">-->
+        <img src="./figures/exp3-hierarchical-rep/hierarchical-recon.png" width="600" style="margin:10px">
+        <p class="caption"><b>Figure 3:</b> Hierarchical reconstruction with BIVA backbone model.</p>
+    </div>
 
 
     <hr>
@@ -221,7 +234,12 @@
     </div>
 
     <h3 id="additional-results-hs">Experiment 2: Hierarchical Representation</h3>
-
+    <div class="figure">
+        <img src="./figures/exp3-hierarchical-rep/nvae_hs_top.png" width="600" style="margin:10px">
+        <img src="./figures/exp3-hierarchical-rep/nvae_hs_mid.png" width="600" style="margin:10px">
+        <img src="./figures/exp3-hierarchical-rep/nvae_hs_bot.png" width="600" style="margin:10px">
+        <p class="caption"><b>Figure 2:</b> Hierarchical sampling with NVAE backbone model.</p>
+    </div>
 <!--    <div class="figure">-->
 <!--        <img src="./figure/image/fid/fid_table.png" width="800" style="margin:10px">-->
 <!--    </div>-->
