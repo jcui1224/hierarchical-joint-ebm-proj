@@ -129,51 +129,42 @@
         The proposed EBM prior model can also be applied to deep hierarchical models via two-stage training scheme, in which the posterior samples can be obtained from pre-trained inference model,
         while prior samples are obtained via <a href="https://github.com/NVlabs/VAEBM">reparametrized sampling</a> scheme.
         We consider <a href="https://github.com/NVlabs/NVAE">NVAE</a> as our backbone model for the first stage training and train our joint latent space EBM prior model in the second stage.
+        We show the quantitative result in tables and qualitative results in Figure.1. Other results can be found <a href="#additional-results">here</a>.
     </p>
 
     <p>The quantitative results are shown in tables</p>
     <div class="figure">
-        <img src="./figures/exp2-nvae/cvpr2023-exp2-table1.png" width="300" style="margin:10px">
-        <img src="./figures/exp2-nvae/cvpr2023-exp2-table2.png" width="300" style="margin:10px">
+        <img src="./figures/exp2-nvae/cvpr2023-exp2-table1.png" width="200" style="margin:10px">
+        <img src="./figures/exp2-nvae/cvpr2023-exp2-table2.png" width="400" style="margin:10px">
 <!--        <p class="caption"><b>Table</b> Image synthesis with NVAE backbone model on CelebA-HQ \(256 \times 256\). Left: temperature=0.7. Right: temperature=1.0.</p>-->
     </div>
 
     <p>The qualitative results are shown in figures</p>
-    <div class="figure">
-        <img src="./figures/exp2-nvae/cvpr2023-exp2-celebahq256_ours_0.7.png" width="300" style="margin:10px">
-        <img src="./figures/exp2-nvae/cvpr2023-exp2-celebahq256_ours_1.0.png" width="300" style="margin:10px">
-        <p class="caption"><b>Figure 1:</b> Image synthesis with NVAE backbone model on CelebA-HQ (\(256 \times 256\)). Left: temperature=0.7. Right: temperature=1.0.</p>
-    </div>
-    <div class="figure">
-        <img src="./figures/exp2-nvae/cvpr2023-exp2-cifar10_nvae.png" width="300" style="margin:10px">
-        <img src="./figures/exp2-nvae/cvpr2023-exp2-cifar10_ours.png" width="300" style="margin:10px">
-        <p class="caption"><b>Figure 2:</b> Image synthesis with NVAE backbone model on CIFAR-10 (\(32 \times 32\)). Left: NVAE. Right: ours.</p>
-    </div>
+
     <div class="figure">
         <img src="./figures/exp2-nvae/cvpr2023-exp2-church_nave.png" width="300" style="margin:10px">
         <img src="./figures/exp2-nvae/cvpr2023-exp2-church_ours.png" width="300" style="margin:10px">
-        <p class="caption"><b>Figure 3:</b> Image synthesis with NVAE backbone model on LSUN-Church (\(64 \times 64\)). Left: NVAE. Right: ours.</p>
+        <img src="./figures/exp2-nvae/cvpr2023-exp2-church_mcmc.png" width="600" style="margin:10px">
+        <p class="caption"><b>Figure 1:</b> Image synthesis and Langevin transition with NVAE backbone model on LSUN-Church (\(64 \times 64\)). Left: NVAE. Right: ours.</p>
     </div>
 
-    <p>
-        We further visualize the Langevin transition that starts from Gaussian prior toward our joint EBM prior distribution.
-        It can be seen that the quality of synthesis improves as the Langevin progresses
-    </p>
-    
+
+    <h3 id="additional-results">Additional Results</h3>
     <div class="figure">
+        <img src="./figures/exp2-nvae/cvpr2023-exp2-cifar10_nvae.png" width="300" style="margin:10px">
+        <img src="./figures/exp2-nvae/cvpr2023-exp2-cifar10_ours.png" width="300" style="margin:10px">
         <img src="./figures/exp2-nvae/cvpr2023-exp2-cifar10_mcmc1.png" width="300" style="margin:10px">
         <img src="./figures/exp2-nvae/cvpr2023-exp2-cifar10_mcmc2.png" width="300" style="margin:10px">
-        <p class="caption"><b>Figure 1:</b> Langevin transition on CIFAR-10.</p>
+        <p class="caption"><b>Figure 2:</b> Image synthesis and Langevin transition with NVAE backbone model on CIFAR-10 (\(32 \times 32\)). Left: NVAE. Right: ours.</p>
     </div>
+
     <div class="figure">
-        <img src="./figures/exp2-nvae/cvpr2023-exp2-church_mcmc.png" width="600" style="margin:10px">
-        <p class="caption"><b>Figure 1:</b> Langevin transition on LSUN-Church.</p>
-    </div>
-    <div class="figure">
+        <img src="./figures/exp2-nvae/cvpr2023-exp2-celebahq256_ours_0.7.png" width="300" style="margin:10px">
+        <img src="./figures/exp2-nvae/cvpr2023-exp2-celebahq256_ours_1.0.png" width="300" style="margin:10px">
         <img src="./figures/exp2-nvae/cvpr2023-exp2-celeba256_mcmc.png" width="600" style="margin:10px">
-        <p class="caption"><b>Figure 1:</b> Langevin transition on CelebA-HQ.</p>
+        <p class="caption"><b>Figure 1:</b> Image synthesis with NVAE backbone model on CelebA-HQ (\(256 \times 256\)). Left: temperature=0.7. Right: temperature=1.0.</p>
     </div>
-    
+
 <!--    <div class="figure">-->
 <!--        <img src="./figure/image/fid/fid_table.png" width="800" style="margin:10px">-->
 <!--    </div>-->
