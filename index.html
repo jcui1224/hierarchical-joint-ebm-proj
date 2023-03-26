@@ -105,7 +105,8 @@
 
     <h2>Experiments</h2>
 
-    <h3>Experiment 1: Joint Training</h3>
+    <h3>Experiment 1: Image Modelling</h3>
+    <h4>Experiment 1.1: Joint training</h4>
     <p>
         The proposed EBM prior model can be jointly trained with generation model (MCMC posterior) and inference model (variational learning).
         If the model is well-trained, the multi-layer EBM prior model should render expressive prior distribution leading to realistic synthesis.
@@ -116,7 +117,7 @@
     </div>
 
     <p>
-        We further compare two posterior sampling scheme: MCMC posterior vs. Inference model.
+        We further compare two posterior sampling schemes: MCMC posterior vs. Inference model.
         We observe that the MCMC posterior sampling can be more accurate but less efficient, while inference model is efficient but can be less accurate.
     </p>
     <div class="figure">
@@ -124,7 +125,7 @@
     </div>
 
 
-    <h3>Experiment 2: Deep Hierarchical Model</h3>
+    <h4>Experiment 1.2: Deep hierarchical model</h4>
     <p>
         The proposed EBM prior model can also be applied to deep hierarchical models via two-stage training scheme, in which the posterior samples can be obtained from pre-trained inference model,
         while prior samples are obtained via <a href="https://github.com/NVlabs/VAEBM">reparametrized sampling</a> scheme.
@@ -132,14 +133,11 @@
         We show the quantitative result in tables and qualitative results in Figure.1. Other results can be found <a href="#additional-results">here</a>.
     </p>
 
-    <p>The quantitative results are shown in tables</p>
     <div class="figure">
         <img src="./figures/exp2-nvae/cvpr2023-exp2-table1.png" width="200" style="margin:10px">
         <img src="./figures/exp2-nvae/cvpr2023-exp2-table2.png" width="400" style="margin:10px">
 <!--        <p class="caption"><b>Table</b> Image synthesis with NVAE backbone model on CelebA-HQ \(256 \times 256\). Left: temperature=0.7. Right: temperature=1.0.</p>-->
     </div>
-
-    <p>The qualitative results are shown in figures</p>
 
     <div class="figure">
         <img src="./figures/exp2-nvae/cvpr2023-exp2-church_nave.png" width="300" style="margin:10px">
@@ -149,7 +147,54 @@
     </div>
 
 
-    <h3 id="additional-results">Additional Results</h3>
+
+    <h3>Experiment 2: Hierarchical Representation</h3>
+    <h4>Experiment 2.1: Hierarchical Sampling</h4>
+    <p>
+        To examine our model in learning hierarchical representation, we first employ hierarchical sampling to illustrate the learned representation at different layers.
+        In particular, we first sample one group of latent vectors from EBM prior and hold them as fixed constants,
+        then we randomly sample multiple groups of latent vectors to replace the fixed latent vectors at different layers.
+        This allows us to visualize the variation in representation across layers. We use BIVA as our backbone model and train our joint EBM prior via the two-stage training scheme.
+        We show the hierarchical sampling results in Figure.2.
+    </p>
+    <div class="figure">
+        <img src="./figures/exp3-hierarchical-rep/hs_EBM_low_independent.png" width="200" style="margin:10px">
+        <img src="./figures/exp3-hierarchical-rep/hs_EBM_mid_independent.png" width="200" style="margin:10px">
+        <img src="./figures/exp3-hierarchical-rep/hs_EBM_top_independent.png" width="200" style="margin:10px">
+        <img src="./figures/exp3-hierarchical-rep/hs_BIVA_low.png" width="200" style="margin:10px">
+        <img src="./figures/exp3-hierarchical-rep/hs_BIVA_mid.png" width="200" style="margin:10px">
+        <img src="./figures/exp3-hierarchical-rep/hs_BIVA_top.png" width="200" style="margin:10px">
+        <p class="caption"><b>Figure 2:</b> Hierarchical sampling. Top: ours. Bottom: BIVA.</p>
+    </div>
+
+    <p>
+        We also conduct out-of-distribution (OOD) detection to further evaluate the hierarchical representations.
+        Typically, low-level representations (e.g., edges, corners) can be shared across data which in turn leads to high-confidence reconstructions for OOD examples,
+        while high-level semantic ones have fewer correlations across different data and shall be more discriminative for OOD detection.
+        We use the decision function defined below and draw a histogram of density with increasing K.
+    </p>
+
+    <div class="figure">
+        <img src="./figures/exp3-hierarchical-rep/cvpr2023-exp3-eqn20.png" width="200" style="margin:10px">
+    </div>
+
+    <p>
+        It can be seen that as K increases, relatively lower log-likelihoods are assigned to OOD data, which in turn renders better detection performance (higher AUROC and AUPRC).
+        This further verifies that the hierarchical representations can be learned within our multi-layer structure.
+    </p>
+
+    <div class="figure">
+<!--        <img src="./figures/exp3-hierarchical-rep/hierarchical-recon.png" width="200" style="margin:10px">-->
+        <img src="./figures/exp3-hierarchical-rep/ood_density_v4.png" width="600" style="margin:10px">
+        <p class="caption"><b>Figure 3:</b> Histogram of density with increasing K.</p>
+    </div>
+
+    
+
+    <hr>
+
+    <h2 id="additional-results">Additional Results</h2>
+    <h3>Experiment 1: Image Modelling</h3>
     <div class="figure">
         <img src="./figures/exp2-nvae/cvpr2023-exp2-cifar10_nvae.png" width="300" style="margin:10px">
         <img src="./figures/exp2-nvae/cvpr2023-exp2-cifar10_ours.png" width="300" style="margin:10px">
@@ -162,8 +207,10 @@
         <img src="./figures/exp2-nvae/cvpr2023-exp2-celebahq256_ours_0.7.png" width="300" style="margin:10px">
         <img src="./figures/exp2-nvae/cvpr2023-exp2-celebahq256_ours_1.0.png" width="300" style="margin:10px">
         <img src="./figures/exp2-nvae/cvpr2023-exp2-celeba256_mcmc.png" width="600" style="margin:10px">
-        <p class="caption"><b>Figure 1:</b> Image synthesis with NVAE backbone model on CelebA-HQ (\(256 \times 256\)). Left: temperature=0.7. Right: temperature=1.0.</p>
+        <p class="caption"><b>Figure 1:</b> Image synthesis and Langevin transition with NVAE backbone model on CelebA-HQ (\(256 \times 256\)). Left: temperature=0.7. Right: temperature=1.0.</p>
     </div>
+
+    <h3>Experiment 2: Hierarchical Representation</h3>
 
 <!--    <div class="figure">-->
 <!--        <img src="./figure/image/fid/fid_table.png" width="800" style="margin:10px">-->
