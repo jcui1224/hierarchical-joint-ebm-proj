@@ -168,7 +168,7 @@
     </div>
 
 
-    <h4>Experiment 2.2: Out-of-distribution dection</h4>
+    <h4>Experiment 2.2: Out-of-distribution detection</h4>
     <p>
         We also conduct out-of-distribution (OOD) detection to further evaluate the hierarchical representations.
         Typically, low-level representations (e.g., edges, corners) can be shared across data which in turn leads to high-confidence reconstructions for OOD examples,
@@ -191,19 +191,30 @@
         <p class="caption"><b>Figure 3:</b> Histogram of density with increasing K.</p>
     </div>
 
-    <h4>Experiment 2.3: Hierarchical reconstruction</h4>
+
+    <h3 id="exp-3">Experiment 3: Analysis of Latent Space</h3>
+    <h4>Experiment 3.1: Long-run Langevin transition</h4>
     <p>
-        We conduct hierarchical reconstruction by using the above decision function with increasing K.
-        We observe that the details in reconstructions can be gradually replaced by common features as more layers of latent variables are sampled from the prior distribution.
-        For example, the sunglass first becomes a more common glass and then eventually disappears.
-        This further suggests that our model carries different levels of abstract representations within the hierarchical structure.
+        If the EBM is well-learned, the energy prior should naturally render local modes of the energy function,
+        and traversing these local modes should present realistic synthesized examples and steady-state energy scores.
     </p>
     <div class="figure">
-<!--        <img src="./figures/exp3-hierarchical-rep/hierarchical-recon.png" width="200" style="margin:10px">-->
-        <img src="./figures/exp3-hierarchical-rep/hierarchical-recon.png" width="600" style="margin:10px">
-<!--        <p class="caption"><b>Figure 3:</b> Hierarchical reconstruction with BIVA backbone model.</p>-->
+        <img src="./figures/exp4-latentspace/100_imgs.png" width="600" style="margin:10px">
+        <img src="./figures/exp4-latentspace/100_en.png" width="600" style="margin:10px">
+        <img src="./figures/exp4-latentspace/2500_imgs.png" width="600" style="margin:10px">
+        <img src="./figures/exp4-latentspace/2500_en.png" width="600" style="margin:10px">
+        <p class="caption"><b>Figure 2:</b> Trajectory in data space and energy profile in Langevin transition.
+            Top: Langevin transition with 100 steps. Bottom: Langevin transition with 2500 steps.</p>
     </div>
 
+    <h4>Experiment 3.2: Anomaly detection</h4>
+    <p>
+        We further evaluate how our joint EBM prior model could benefit the anomaly detection (AD) task. We use un-normalized log-posterior as our EBM
+        decision function and train our model on MNIST with each class held out as an anomalous class. The results are shown in the following table.
+    </p>
+    <div class="figure">
+        <img src="./figures/exp4-latentspace/cvpr2023-exp4-ad.png" width="600" style="margin:10px">
+    </div>
 
     <hr>
     <h2>Additional Results</h2>
@@ -245,6 +256,19 @@
         <img src="./figures/exp3-hierarchical-rep/nvae_hs_mid.png" width="600" style="margin:10px">
         <img src="./figures/exp3-hierarchical-rep/nvae_hs_bot.png" width="600" style="margin:10px">
         <p class="caption"><b>Figure 2:</b> Hierarchical sampling with NVAE backbone model.</p>
+    </div>
+
+    <h4>Hierarchical reconstruction</h4>
+    <p>
+        We conduct hierarchical reconstruction by using the above decision function with increasing K.
+        We observe that the details in reconstructions can be gradually replaced by common features as more layers of latent variables are sampled from the prior distribution.
+        For example, the sunglass first becomes a more common glass and then eventually disappears.
+        This further suggests that our model carries different levels of abstract representations within the hierarchical structure.
+    </p>
+    <div class="figure">
+<!--        <img src="./figures/exp3-hierarchical-rep/hierarchical-recon.png" width="200" style="margin:10px">-->
+        <img src="./figures/exp3-hierarchical-rep/hierarchical-recon.png" width="600" style="margin:10px">
+<!--        <p class="caption"><b>Figure 3:</b> Hierarchical reconstruction with BIVA backbone model.</p>-->
     </div>
 <!--    <div class="figure">-->
 <!--        <img src="./figure/image/fid/fid_table.png" width="800" style="margin:10px">-->
