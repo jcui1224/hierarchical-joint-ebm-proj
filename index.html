@@ -130,28 +130,29 @@
         while prior samples are obtained via <a href="https://github.com/NVlabs/VAEBM">reparametrized sampling</a> scheme.
         We consider <a href="https://github.com/NVlabs/NVAE">NVAE</a> as our backbone model for the first stage training and train our joint latent space EBM prior model in the second stage.
     </p>
-<!--    <p>The generator network \(p_\theta\) in our framework is well-learned to generate samples that are realistic and share visual similarities as the training data. The qualitative results are shown in Figure 1. We further evaluate our model quantitatively by using Fréchet Inception Distance (FID) in the table below. It can be seen that our model achieves superior generation performance compared to listed baseline models.</p>-->
+
+    <p>The quantitative results are shown in tables</p>
     <div class="figure">
         <img src="./figures/exp2-nvae/cvpr2023-exp2-table1.png" width="200" style="margin:10px">
         <img src="./figures/exp2-nvae/cvpr2023-exp2-table2.png" width="400" style="margin:10px">
 <!--        <p class="caption"><b>Table</b> Image synthesis with NVAE backbone model on CelebA-HQ \(256 \times 256\). Left: temperature=0.7. Right: temperature=1.0.</p>-->
     </div>
 
-
+    <p>The qualitative results are shown in figures</p>
     <div class="figure">
         <img src="./figures/exp2-nvae/cvpr2023-exp2-celebahq256_ours_0.7.png" width="300" style="margin:10px">
         <img src="./figures/exp2-nvae/cvpr2023-exp2-celebahq256_ours_1.0.png" width="300" style="margin:10px">
-        <p class="caption"><b>Figure 1:</b> Image synthesis with NVAE backbone model on CelebA-HQ \(256 \times 256\). Left: temperature=0.7. Right: temperature=1.0.</p>
+        <p class="caption"><b>Figure 1:</b> Image synthesis with NVAE backbone model on CelebA-HQ (\(256 \times 256\)). Left: temperature=0.7. Right: temperature=1.0.</p>
     </div>
     <div class="figure">
         <img src="./figures/exp2-nvae/cvpr2023-exp2-cifar10_nvae.png" width="300" style="margin:10px">
         <img src="./figures/exp2-nvae/cvpr2023-exp2-cifar10_ours.png" width="300" style="margin:10px">
-        <p class="caption"><b>Figure 2:</b> Image synthesis with NVAE backbone model on CIFAR-10 \(32 \times 32\). Left: NVAE. Right: ours.</p>
+        <p class="caption"><b>Figure 2:</b> Image synthesis with NVAE backbone model on CIFAR-10 (\(32 \times 32\)). Left: NVAE. Right: ours.</p>
     </div>
     <div class="figure">
         <img src="./figures/exp2-nvae/cvpr2023-exp2-church_nave.png" width="300" style="margin:10px">
         <img src="./figures/exp2-nvae/cvpr2023-exp2-church_ours.png" width="300" style="margin:10px">
-        <p class="caption"><b>Figure 3:</b> Image synthesis with NVAE backbone model on LSUN-Church \(64 \times 64\). Left: NVAE. Right: ours.</p>
+        <p class="caption"><b>Figure 3:</b> Image synthesis with NVAE backbone model on LSUN-Church (\(64 \times 64\)). Left: NVAE. Right: ours.</p>
     </div>
 
 
