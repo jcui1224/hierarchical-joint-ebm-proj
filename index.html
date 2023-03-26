@@ -104,8 +104,11 @@
     <hr>
 
     <h2>Experiments</h2>
-    Experiment 1: <a href="#exp-1">Image Modelling</a>
-    Experiment 2: <a href="#exp-2">Hierarchical Representation</a>
+    <p>
+        Experiment 1: <a href="#exp-1">Image Modelling</a>
+        Experiment 2: <a href="#exp-2">Hierarchical Representation</a>
+    </p>
+
 <!--    Experiment 3: <a href="#exp-3">Analysis of Latent Space</a>-->
     <hr>
     <h3 id="exp-1">Experiment 1: Image Modelling</h3>
@@ -129,6 +132,10 @@
 
 
     <h4>Experiment 1.2: Deep hierarchical model</h4>
+    <div class="figure">
+        <img src="./figures/exp2-nvae/cvpr2023-exp2-celeba256.png" width="600" style="margin:10px">
+    </div>
+
     <p>
         The proposed EBM prior model can also be applied to deep hierarchical models via two-stage training scheme, in which the posterior samples can be obtained from pre-trained inference model,
         while prior samples are obtained via <a href="https://github.com/NVlabs/VAEBM">reparametrized sampling</a> scheme.
@@ -141,14 +148,6 @@
         <img src="./figures/exp2-nvae/cvpr2023-exp2-table2.png" width="400" style="margin:10px">
 <!--        <p class="caption"><b>Table</b> Image synthesis with NVAE backbone model on CelebA-HQ \(256 \times 256\). Left: temperature=0.7. Right: temperature=1.0.</p>-->
     </div>
-
-    <div class="figure">
-        <img src="./figures/exp2-nvae/cvpr2023-exp2-church_nave.png" width="300" style="margin:10px">
-        <img src="./figures/exp2-nvae/cvpr2023-exp2-church_ours.png" width="300" style="margin:10px">
-        <img src="./figures/exp2-nvae/cvpr2023-exp2-church_mcmc.png" width="600" style="margin:10px">
-        <p class="caption"><b>Figure 1:</b> Image synthesis and Langevin transition with NVAE backbone model on LSUN-Church (\(64 \times 64\)). Left: NVAE. Right: ours.</p>
-    </div>
-
 
     <hr>
     <h3 id="exp-2">Experiment 2: Hierarchical Representation</h3>
@@ -226,6 +225,13 @@
         <img src="./figures/exp2-nvae/cvpr2023-exp2-cifar10_mcmc1.png" width="300" style="margin:10px">
         <img src="./figures/exp2-nvae/cvpr2023-exp2-cifar10_mcmc2.png" width="300" style="margin:10px">
         <p class="caption"><b>Figure 2:</b> Image synthesis and Langevin transition with NVAE backbone model on CIFAR-10 (\(32 \times 32\)). Left: NVAE. Right: ours.</p>
+    </div>
+
+    <div class="figure">
+        <img src="./figures/exp2-nvae/cvpr2023-exp2-church_nave.png" width="300" style="margin:10px">
+        <img src="./figures/exp2-nvae/cvpr2023-exp2-church_ours.png" width="300" style="margin:10px">
+        <img src="./figures/exp2-nvae/cvpr2023-exp2-church_mcmc.png" width="600" style="margin:10px">
+        <p class="caption"><b>Figure 1:</b> Image synthesis and Langevin transition with NVAE backbone model on LSUN-Church (\(64 \times 64\)). Left: NVAE. Right: ours.</p>
     </div>
 
     <div class="figure">
