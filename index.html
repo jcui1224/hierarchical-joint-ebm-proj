@@ -62,54 +62,6 @@
 </head>
 <body>
 
-<div class="column has-text-centered">
-    <div class="publication-links">
-                     <!-- Arxiv PDF link -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-                    <!-- Supplementary PDF link -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
-                  <!-- Github link -->
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <!-- ArXiv abstract Link -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-    </div>
-</div>
-
 <div class="content">
     <div id="abs">
         <h1>Joint Latent Space EBM Prior Model for Multi-layer Generator</h1>
@@ -118,6 +70,57 @@
             <sup>1</sup> Stevens Institute of Technology, SIT<br>
             <sup>2</sup> University of California, Los Angeles, UCLA<br>
         </div>
+        <div class="column has-text-centered">
+                <div class="publication-links">
+                  <!-- PDF Link. -->
+                  <!--                            <span class="link-block">-->
+                  <!--                                <a href="" class="external-link button is-normal is-rounded is-dark">-->
+                  <!--                                  <span class="icon">-->
+                  <!--                                      <i class="fas fa-file-pdf"></i>-->
+                  <!--                                  </span>-->
+                  <!--                                  <span>Paper (tbd)</span>-->
+                  <!--                                </a>-->
+                  <!--                              </span>-->
+                  <span class="link-block">
+                    <a
+                      href="https://link.springer.com/article/10.1007/s10032-023-00434-x"
+                      class="external-link button is-normal is-rounded is-dark"
+                      target="_blank"
+                    >
+                      <span class="icon">
+                        <i class="ai ai-springer" style="font-size: 1.2rem"></i>
+                      </span>
+                      <span>Paper</span>
+                    </a>
+                  </span>
+                  <!-- Code Link. -->
+                  <span class="link-block">
+                    <a
+                      href="https://github.com/felixhertlein/"
+                      class="external-link button is-normal is-rounded is-dark"
+                      target="_blank"
+                    >
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code (soon!)</span>
+                    </a>
+                  </span>
+                  <!-- Dataset Link. -->
+                  <span class="link-block">
+                    <a
+                      href="https://github.com/felixhertlein/"
+                      class="external-link button is-normal is-rounded is-dark"
+                      target="_blank"
+                    >
+                      <span class="icon">
+                        <i class="far fa-images"></i>
+                      </span>
+                      <span>Data (soon!)</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
         <h2>Abstract</h2>
         <p> This paper studies the fundamental problem of learning multi-layer generator models. The multi-layer generator model builds multiple layers of latent variables as a prior model on top of the generator, which benefits learning complex data distribution and hierarchical representations. However, such a prior model usually focuses on modeling inter-layer relations between latent variables by assuming non-informative (conditional) Gaussian distributions, which can be limited in model expressivity. To tackle this issue and learn more expressive prior models, we propose an energy-based model (EBM) on the joint latent space over all layers of latent variables with the multi-layer generator as its backbone. Such joint latent space EBM prior model captures the intra-layer contextual relations at each layer through layer-wise energy terms, and latent variables across different layers are jointly corrected. We develop a joint training scheme via maximum likelihood estimation (MLE), which involves Markov Chain Monte Carlo (MCMC) sampling for both prior and posterior distributions of the latent variables from different layers. To ensure efficient inference and learning, we further propose a variational training scheme where an inference model is used to amortize the costly posterior MCMC sampling. Our experiments demonstrate that the learned model can be expressive in generating high-quality images and capturing hierarchical features for better outlier detection.</p>
     </div>
